@@ -1,0 +1,250 @@
+<html lang="ko" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.75, maximum-scale=2">
+    <meta name="robots" content="index, follow">
+    <title> 샤니마스 소트 </title>
+    <link rel="stylesheet" href="./assets/header.css">
+    <link rel="stylesheet" href="./assets/app.css?version=1">
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <h1 id="page_title">
+            샤이니컬러즈 소트
+        </h1>
+        <nav> 
+        	<a rel="wiki" href="/wiki">
+        		위키
+        	</a>
+        	<a rel="source" href="https://github.com/login-dhcp/ShinyColors_Sort">
+        		소스
+        	</a>
+        </nav>
+    </header>
+    <!-- /header -->
+    <!-- content -->
+    <div id="sortMain" sort-phase="ready">
+        Description<br />
+        <div id="sortDescription">
+            <div id="sortDescriptionMain">
+                * 비교할 인물들을 선택한 후 Start 버튼을 눌러주세요
+            </div>
+            <div id="sortDescriptionOngoing">
+                * 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다
+            </div>
+            <button id="sortStart" onclick="startSort()">
+                Start
+            </button>
+        </div>
+        <div id="sortWindow">
+            <div id="sortImagePanel">
+                <img id="sortLeftImage" class="img" onclick="next('sortLeftButton')">
+                <img id="sortRightImage" class="img" onclick="next('sortRightButton')">
+            </div>
+            <div id="sortChoicePanel">
+                <button id="sortLeftButton" onclick="next(this.id)">
+                </button>
+                <button id="sortRightButton" onclick="next(this.id)">
+                </button>
+            </div>
+        </div>
+        <div id="sortResult">
+            <!-- Result -->
+        </div>
+    </div>
+    <br />
+    <div id="sortList">
+        목록
+        <div id="sotrListCheckbox">
+        	<ul>
+                <button id="selectAll" onclick="selectAll(true)">
+                	전체 선택
+                </button>
+                <button id="disselectAll" onclick="selectAll(false)">
+                	전체 해제
+                </button>
+        	</ul>
+            <ul>
+            	illumination STARS
+                <li>
+                    <input type="checkbox" id="entry:1">
+                    <label for="entry:1">
+                        사쿠라기 마노
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:2">
+                    <label for="entry:2">
+                        카자노 히오리
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:3">
+                    <label for="entry:3">
+                        하치미야 메구루
+                    </label>
+                </li>
+            </ul>
+            <ul>
+            	L'Antica
+                <li>
+                    <input type="checkbox" id="entry:4">
+                    <label for="entry:4">
+                        츠키오카 코가네
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:5">
+                    <label for="entry:5">
+                        타나카 마미미
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:6">
+                    <label for="entry:6">
+                        시라세 사쿠야
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:7">
+                    <label for="entry:7">
+                        미츠미네 유이카
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:8">
+                    <label for="entry:8">
+                        유코쿠 키리코
+                    </label>
+                </li>
+            </ul>
+            <ul>
+            	放課後ｸﾗｲﾏｯｸｽｶﾞｰﾙｽﾞ
+                <li>
+                    <input type="checkbox" id="entry:9">
+                    <label for="entry:9">
+                        코미야 카호
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:10">
+                    <label for="entry:10">
+                        소노다 치요코
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:11">
+                    <label for="entry:11">
+                        사이죠 쥬리
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:12">
+                    <label for="entry:12">
+                        모리노 린제
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:13">
+                    <label for="entry:13">
+                        아리스가와 나츠하
+                    </label>
+                </li>
+            </ul>
+            <ul>
+            	ALSTROEMERIA
+                <li>
+                    <input type="checkbox" id="entry:14">
+                    <label for="entry:14">
+                        오사키 아마나
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:15">
+                    <label for="entry:15">
+                        오사키 텐카
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:16">
+                    <label for="entry:16">
+                        쿠와야마 치유키
+                    </label>
+                </li>
+            </ul>
+            <ul>
+            	Straylight
+                <li>
+                    <input type="checkbox" id="entry:17">
+                    <label for="entry:17">
+                        세리자와 아사히
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:18">
+                    <label for="entry:18">
+                        마유즈미 후유코
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:19">
+                    <label for="entry:19">
+                        이즈미 메이
+                    </label>
+                </li>
+            </ul>
+            <ul>
+            	noctchill
+                <li>
+                    <input type="checkbox" id="entry:20">
+                    <label for="entry:20">
+                        아사쿠라 토오루
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:21">
+                    <label for="entry:21">
+                        히구치 마도카
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:22">
+                    <label for="entry:22">
+                        후쿠마루 코이토
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="entry:23">
+                    <label for="entry:23">
+                        이치카와 히나나
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /content -->
+    <script type="text/javascript" src="./assets/app.js?version=1">
+    </script>
+</body>
+<footer>
+	<div id="updateDate">
+		최신 업데이트: 2020/11/28
+	</div>
+	<div id="CopyRight">
+		본 페이지에서 사용하는 이미지 및 파일들의 저작권 및 기타 지적 재산권은 BANDAI NAMCO Entertainment, BXD Inc. 또는 기타 라이센스 제공자에 귀속됩니다. 본 사이트는 BANDAI NAMCO 및 BXD와 무관합니다.
+	</div>
+	<div id="Author">
+		제작자: 로긴유동(login_dhcp, nonamed424@gmail.com)
+		<a href="https://github.com/login-dhcp">
+			github
+		</a>
+		<a href="https://twitter.com/login_dhcp">
+			twitter
+		</a>
+	</div>
+</footer>
+
+</html>
