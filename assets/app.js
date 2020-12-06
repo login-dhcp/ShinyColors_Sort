@@ -58,7 +58,9 @@ function setIdols() {
 
     Idols_new = {};
     for (let i = 0; i < inputElements.length; i++) {
-        key = inputElements[i].labels[0].innerText;
+        let elem = inputElements[i].nextElementSibling;
+        let key = elem.innerText;
+        // key = inputElements[i].labels[0].innerText;
         Idols_new[key] = 0;
     }
     Idols = Idols_new;
@@ -96,6 +98,7 @@ function setVSScreen(key1, key2) {
 }
 
 function nextVS() {
+    console.log(Idols);
     if (cur_score === max_score) {
         changeSortPhaseTo('done');
         getResult();
@@ -115,8 +118,14 @@ function nextVS() {
         setVSScreen(key1, key2);
     } else {
         if (len_cands === 1) {
-            key = Object.keys(Cands)[0];
-            Idols[key] += 1;
+            if (cur_score + 1 === max_score) {
+                changeSortPhaseTo('done');
+                getResult();
+                return;
+            } else {
+                key = Object.keys(Cands)[0];
+                Idols[key] += 1;
+            }
         }
         cur_score += 1;
         initCands(cur_score);
@@ -183,9 +192,73 @@ function beatutify(result) {
 
 
 function selectAll(value) {
-    var inputElements = document.querySelectorAll('input[id^=entry]');
-    for (let i=0; i<inputElements.length; i++) {
-        inputElements[i].checked = value;
+    // inputElements = document.querySelectorAll(`input[id^=entry_]`);
+    inputElements = document.querySelectorAll(`input[id^=select_all]`);
+    for (let i = 0; i < inputElements.length; i++) {
+        // $(inputElements[i]).prop("checked", value);
+        if (inputElements[i].checked !== value) {
+            inputElements[i].click();
+        }
     }
     return;
+}
+
+//////
+
+$(function() {
+    var inputElements = document.querySelectorAll(`input[id^=select_all]`);
+    for (let i = 0; i < inputElements.length; i++) {
+        let entry = inputElements[i].id.split(":")[1];
+
+        $(inputElements[i]).change(function() {
+            select_ones = document.querySelectorAll(`input[id^=entry_${entry}_]`);
+            for (let j = 0; j < select_ones.length; j++) {
+                $(select_ones[j]).prop('checked', $(this).prop('checked'));
+            }
+        });
+
+        select_ones = document.querySelectorAll(`input[id^=entry_${entry}]`);
+        for (let j = 0; j < select_ones.length; j++) {
+            select_one = select_ones[j];
+            select_one.addEventListener('change', function() {
+                let cnt = 0;
+
+                select_ones_ = document.querySelectorAll(`input[id^=entry_${entry}]`);
+                for (let k = 0; k < select_ones_.length; k++) {
+                    if (select_ones_[k].checked) {
+                        cnt += 1;
+                    }
+                }
+                if (cnt === select_ones.length) {
+                    $(inputElements[i]).
+                    prop("indeterminate", false).
+                    prop('checked', true);
+                } else if (cnt === 0) {
+                    $(inputElements[i]).
+                    prop('indeterminate', false).
+                    prop('checked', false);
+                } else {
+                    $(inputElements[i]).prop('indeterminate', true);
+                }
+            });
+        }
+    }
+
+});
+
+
+function open_collapsed() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", open_collapsed);
 }

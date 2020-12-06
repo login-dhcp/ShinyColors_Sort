@@ -100,6 +100,22 @@ div#sortList {
     padding-right: 20px !important;
 }
 
+.collapsible {
+  display: inline;
+  text-align: left;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #eee;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsible_content {
+  display: none;
+  overflow: hidden;
+}
+
 
 
 div#sortMain[sort-phase=ready] div#sortWindow,
