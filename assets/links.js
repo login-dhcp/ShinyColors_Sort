@@ -1,0 +1,35 @@
+var links = {
+    "audio": {
+        "Spread the Wings!!": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/49/08/40/490840f7-0ca0-795b-0e54-1bbdb0da5e05/mzaf_6619042451411084783.plus.aac.ep.m4a",
+        "Multicolored Sky": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/49/08/40/490840f7-0ca0-795b-0e54-1bbdb0da5e05/mzaf_6619042451411084783.plus.aac.ep.m4a",
+        "ヒカリのdestination": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5d/fc/83/5dfc83e5-7cb2-28f4-a7c9-d041147c6b29/mzaf_1732575170121669159.plus.aac.ep.m4a",
+        "虹になれ": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ab/2c/62/ab2c62c7-8755-8525-d630-3a02648fa257/mzaf_6032766701166954698.plus.aac.ep.m4a",
+        "Spread the Wings!! (illumination STARS Ver.)": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cc/92/b7/cc92b7fa-192a-e3ea-0fea-e6c729dde22b/mzaf_4098891387716243632.plus.aac.ep.m4a",
+        "バベルシティ・グレイス": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/cf/1e/dbcf1ecc-74d0-00a0-3fb4-f6dfd6d3b5e6/mzaf_6025452838529877586.plus.aac.ep.m4a",
+        "幻惑SILHOUETTE": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e0/51/21/e05121ba-4a89-2ef3-c1f9-123365732ba8/mzaf_5345003349976975986.plus.aac.ep.m4a",
+        "Spread the Wings!! (L’Antica Ver.)": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/70/81/56/7081563e-f6e6-e6dd-05e8-4ba82258111d/mzaf_1353237105265718682.plus.aac.ep.m4a",
+        "夢咲きAfter school": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/29/3d/cf/293dcf62-927d-6051-2641-223c1147c6e9/mzaf_5178452358221051642.plus.aac.ep.m4a",
+        "太陽キッス": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/19/69/5e/19695e4c-777f-d97d-d7bc-eda12d19f327/mzaf_3309834674734335972.plus.aac.ep.m4a",
+        "Spread the Wings!! (放課後クライマックスガールズ Ver.)": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/fe/2f/b8/fe2fb8ee-58e0-ca87-fe5a-0e5eb089d2a0/mzaf_8783213582827893940.plus.aac.ep.m4a",
+        "アルストロメリア": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/f3/81/28/f3812893-dfd2-7d21-5a01-1c89f6255cd1/mzaf_6251391825559277821.plus.aac.ep.m4a",
+        "ハピリリ": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/d2/23/d2/d223d2ee-62fe-44dc-e180-dc9a5c9f9e4a/mzaf_2079312190460791035.plus.aac.ep.m4a",
+        "Spread the Wings!! (ALSTROEMERIA Ver.)": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/9d/28/f9/9d28f913-dce6-9899-d338-c4f93f7bc621/mzaf_296637909684581962.plus.aac.ep.m4a",
+    },
+
+    "image": {
+        "Spread the Wings!!": "./src/album_cover/BRILLI@NT_WING_01.webp",
+        "Multicolored Sky": "./src/album_cover/BRILLI@NT_WING_01.webp",
+        "ヒカリのdestination": "./src/album_cover/BRILLI@NT_WING_02.webp",
+        "虹になれ": "./src/album_cover/BRILLI@NT_WING_02.webp",
+        "Spread the Wings!! (illumination STARS Ver.)": "./src/album_cover/BRILLI@NT_WING_02.webp",
+        "バベルシティ・グレイス": "./src/album_cover/BRILLI@NT_WING_03.webp",
+        "幻惑SILHOUETTE": "./src/album_cover/BRILLI@NT_WING_03.webp",
+        "Spread the Wings!! (L’Antica Ver.)": "./src/album_cover/BRILLI@NT_WING_03.webp",
+        "夢咲きAfter school": "./src/album_cover/BRILLI@NT_WING_04.webp",
+        "太陽キッス": "./src/album_cover/BRILLI@NT_WING_04.webp",
+        "Spread the Wings!! (放課後クライマックスガールズ Ver.)": "./src/album_cover/BRILLI@NT_WING_04.webp",
+        "アルストロメリア": "./src/album_cover/BRILLI@NT_WING_05.webp",
+        "ハピリリ": "./src/album_cover/BRILLI@NT_WING_05.webp",
+        "Spread the Wings!! (ALSTROEMERIA Ver.)": "./src/album_cover/BRILLI@NT_WING_05.webp",
+    }
+}
