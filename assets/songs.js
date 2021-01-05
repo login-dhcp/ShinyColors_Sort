@@ -1,19 +1,19 @@
 function changeSortPhaseTo(value) {
-    let elem = document.getElementById('sortMain');
+    let elem = document.getElementById('sort_main');
     let phaseAttr = 'sort-phase';
     elem.setAttribute(phaseAttr, value);
     if (value === "done") {
-        let startButton = document.getElementById("sortStart");
+        let startButton = document.getElementById("sort_start");
         startButton.innerText = "Retry?";
 
-        let sortDescriptionMain = document.getElementById("sortDescriptionMain");
+        let sortDescriptionMain = document.getElementById("sort_description_main");
         sortDescriptionMain.innerText = "* 재시도하려면 Retry버튼을 눌러주세요";
 
     } else if (value === "ready") {
-        let startButton = document.getElementById("sortStart");
+        let startButton = document.getElementById("sort_start");
         startButton.innerText = "Start";
 
-        let sortDescriptionMain = document.getElementById("sortDescriptionMain");
+        let sortDescriptionMain = document.getElementById("sort_description_main");
         sortDescriptionMain.innerText = "* 비교할 인물들을 선택한 후 Start 버튼을 눌러주세요";
 
     }
@@ -28,7 +28,7 @@ var cur_score = 0;
 
 
 function startSort() {
-    let elem = document.getElementById('sortMain');
+    let elem = document.getElementById('sort_main');
     let phaseAttr = 'sort-phase';
     let phase = elem.getAttribute(phaseAttr);
     if (phase == "done") {
@@ -36,7 +36,7 @@ function startSort() {
         return;
     } else if (phase == "ready") {
         if (getEntryList().length === 0) {
-            alert('한 명 이상의 인물을 선택해주세요');
+            alert('목록에서 한 개 이상 선택해주세요');
             return;
         } else {
             setCands();
@@ -88,21 +88,21 @@ function initCands(cur_score) {
 }
 
 function setVSScreen(key1, key2) {
-    let leftImage = document.getElementById('sortLeftImage');
+    let leftImage = document.getElementById('sort_left_image');
     // leftImage.src = "images/" + String(key1) + ".png";
     leftImage.src = links['image'][key1];
     leftImage.width = 256;
     leftImage.height = 256;
-    document.getElementById("sortLeftButton").innerText = key1;
-    document.getElementById("sortLeftAudio").src=links['audio'][key1];
+    document.getElementById("sort_left_button").innerText = key1;
+    document.getElementById("sort_left_audio").src=links['audio'][key1];
 
-    let rightImage = document.getElementById('sortRightImage');
+    let rightImage = document.getElementById('sort_right_image');
     // rightImage.src = "images/" + String(key2) + ".png";
     rightImage.src = links['image'][key2];
     rightImage.width = 256;
     rightImage.height = 256;
-    document.getElementById("sortRightButton").innerText = key2;
-    document.getElementById("sortRightAudio").src=links['audio'][key2];
+    document.getElementById("sort_right_button").innerText = key2;
+    document.getElementById("sort_right_audio").src=links['audio'][key2];
 }
 
 function nextVS() {
@@ -150,7 +150,7 @@ function next(elemName) {
 
 
 function showResult(result_str) {
-    let elem = document.getElementById("sortResult");
+    let elem = document.getElementById("sort_result");
     //elem.setAttribute(innerText, result_str);
     elem.innerHTML = result_str;
 }
