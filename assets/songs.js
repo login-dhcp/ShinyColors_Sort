@@ -94,7 +94,7 @@ function setVSScreen(key1, key2) {
     leftImage.width = 256;
     leftImage.height = 256;
     document.getElementById("sort_left_button").innerText = key1;
-    document.getElementById("sort_left_audio").src=links['audio'][key1];
+    document.getElementById("sort_left_audio").src = links['audio'][key1];
 
     let rightImage = document.getElementById('sort_right_image');
     // rightImage.src = "images/" + String(key2) + ".png";
@@ -102,7 +102,7 @@ function setVSScreen(key1, key2) {
     rightImage.width = 256;
     rightImage.height = 256;
     document.getElementById("sort_right_button").innerText = key2;
-    document.getElementById("sort_right_audio").src=links['audio'][key2];
+    document.getElementById("sort_right_audio").src = links['audio'][key2];
 }
 
 function nextVS() {
@@ -201,69 +201,71 @@ function beatutify(result) {
 
 
 function selectAll(value) {
-    // inputElements = document.querySelectorAll(`input[id^=entry_]`);
-    inputElements = document.querySelectorAll(`input[id^=select_all]`);
-    for (let i = 0; i < inputElements.length; i++) {
+    var checkboxs = document.querySelectorAll(`input[data-checkbox-id]`);
+    for (let i = 0; i < checkboxs.length; i++) {
         // $(inputElements[i]).prop("checked", value);
-        if (inputElements[i].checked !== value) {
-            inputElements[i].click();
+        if (checkboxs[i].checked !== value) {
+            checkboxs[i].click();
         }
     }
     return;
 }
 
-//////
-
+// code for parent checkboxs selecting all childs
 $(function() {
-    var selectmanyList = document.querySelectorAll(`input[data-id^=album]`);
-    console.log('i', selectmanyList);
-    for (let i = 0; i < selectmanyList.length; i++) {
-        let entry = selectmanyList[i].getAttribute('data-id').split(":")[1];
-        console.log(entry);
-
-        e = selectmanyList[i];
-        for (let j=0; j<10; j++) {
-            console.log('e', e);
-            e = e.nextElementSibling;
-            console.log('ee', e);
-        }
-
-        $(selectmanyList[i]).change(function() {
-            select_ones = document.querySelectorAll(`input[id^=entry_${entry}_]`);
-            for (let j = 0; j < select_ones.length; j++) {
-                $(select_ones[j]).prop('checked', $(this).prop('checked'));
-            }
-        });
-
-        select_ones = document.querySelectorAll(`input[id^=entry_${entry}]`);
-        for (let j = 0; j < select_ones.length; j++) {
-            select_one = select_ones[j];
-            select_one.addEventListener('change', function() {
-                let cnt = 0;
-
-                select_ones_ = document.querySelectorAll(`input[id^=entry_${entry}]`);
-                for (let k = 0; k < select_ones_.length; k++) {
-                    if (select_ones_[k].checked) {
-                        cnt += 1;
-                    }
-                }
-                if (cnt === select_ones.length) {
-                    $(selectmanyList[i]).
-                    prop("indeterminate", false).
-                    prop('checked', true);
-                } else if (cnt === 0) {
-                    $(selectmanyList[i]).
-                    prop('indeterminate', false).
-                    prop('checked', false);
-                } else {
-                    $(selectmanyList[i]).prop('indeterminate', true);
+    var checkboxs = document.querySelectorAll(`input[data-checkbox-id]`);
+    for (let i = 0; i < checkboxs.length; i++) {
+        var parent_checkbox_id = checkboxs[i].getAttribute('data-checkbox-id');
+        var child_checkboxs = document.querySelectorAll(`input[data-checkbox-id^="${parent_checkbox_id}_"]`);
+        // if isparent
+        if (child_checkboxs.length != 0) {
+            // link childs to parents
+            $(checkboxs[i]).change(function() {
+                var parent_checkbox_id = checkboxs[i].getAttribute('data-checkbox-id');
+                var child_checkboxs = document.querySelectorAll(`input[data-checkbox-id^="${parent_checkbox_id}_"]`);
+                for (let j = 0; j < child_checkboxs.length; j++) {
+                    $(child_checkboxs[j]).prop('checked', $(this).prop('checked'));
                 }
             });
+
+            // 3 state checkboxs for parents
+            for (let j = 0; j < child_checkboxs.length; j++) {
+                child_checkboxs[j].addEventListener('change', function() {
+                    let cnt = 0;
+                    let my_checkbox_id = $(this).prop('dataset')['checkboxId'];
+                    let parent_checkbox_id = my_checkbox_id.substring(0, my_checkbox_id.length - 3);
+                    var parent_checkbox = document.querySelectorAll(`input[data-checkbox-id="${parent_checkbox_id}"]`);
+                    var sibling_checkboxs = document.querySelectorAll(`input[data-checkbox-id^="${parent_checkbox_id}_"]`);
+
+                    for (let k = 0; k < sibling_checkboxs.length; k++) {
+                        if (sibling_checkboxs[k].checked) {
+                            cnt += 1;
+                        }
+                    }
+
+                    if (cnt === sibling_checkboxs.length) {
+                        $(parent_checkbox).
+                        prop("indeterminate", false).
+                        prop('checked', true);
+                    } else if (cnt === 0) {
+                        $(parent_checkbox).
+                        prop('indeterminate', false).
+                        prop('checked', false);
+                    } else {
+                        $(parent_checkbox).prop('indeterminate', true);
+                    }
+                });
+            }
         }
     }
-
 });
 
+// link startSort() to sort_start button
+document.getElementById("sort_start").addEventListener("click", startSort, false);
+
+// link select all/disselect all to buttons
+document.getElementById("btn_select_all").addEventListener("click", selectAll(true), false);
+document.getElementById("btn_select_none").addEventListener("click", selectAll(false), false);
 
 function open_collapsed() {
     this.classList.toggle("active");

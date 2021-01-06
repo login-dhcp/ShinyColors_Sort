@@ -36,7 +36,7 @@
                 <div id="sort_description_ongoing">
                     * 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다
                 </div>
-                <button id="sort_start" onclick="startSort()">
+                <button id="sort_start">
                     Start
                 </button>
             </div>
@@ -53,7 +53,7 @@
                 <div id="sort_right_panel">
                     <label style="cursor: pointer;">
                         <img id="sort_right_image" class="img"><br />
-                        <button id="sort_right_button" onclick="next(this.id)"></button>
+                        <button id="sort_right_button" onclick="next(this.id)"></button><br />
                     </label>
                     <audio controls id="sort_right_audio"></audio><br />
                 </div>
@@ -78,159 +78,131 @@
                     BRILLI@NT WING series
                     <li>
                         <label style="cursor:pointer">
-                            <input type="checkbox" data-id="series:BRILLI@NT_WING" class="select">BRILLI@NT WING
+                            <input type="checkbox" data-checkbox-id="01" class="select">BRILLI@NT WING
                         </label>
                         <div class="collapsible"> | 펼치기</div>
                         <ul class="collapsible_content">
                             <div>
                                 <li>
                                     <label style="cursor:pointer">
-                                        <input type="checkbox" data-id="album:01" class="select">BRILLI@NT WING 01 Spread the Wings!!
+                                        <input type="checkbox" data-checkbox-id="01_01" class="select">BRILLI@NT WING 01 Spread the Wings!!
                                     </label>
                                     <div class="collapsible"> | 펼치기</div>
                                     <ul class="collapsible_content">
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:01" class="select_one">
-                                                <span>
-                                                    Spread the Wings!!
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_01_01" class="select_one">
+                                                <span>Spread the Wings!!</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:02" class="select_one">
-                                                <span>
-                                                    Multicolored Sky
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_01_02" class="select_one">
+                                                <span>Multicolored Sky</span>
                                             </label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <label style="cursor:pointer">
-                                        <input type="checkbox" data-id="album:02" class="select">BRILLI@NT WING 02 ヒカリのdestination
+                                        <input type="checkbox" data-checkbox-id="01_02" class="select">BRILLI@NT WING 02 ヒカリのdestination
                                     </label>
                                     <div class="collapsible"> | 펼치기</div>
                                     <ul class="collapsible_content">
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:01" class="select_one">
-                                                <span>
-                                                    ヒカリのdestination
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_02_01" class="select_one">
+                                                <span>ヒカリのdestination</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:02" class="select_one">
-                                                <span>
-                                                    虹になれ
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_02_02" class="select_one">
+                                                <span>虹になれ</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:03" class="select_one">
-                                                <span>
-                                                    Spread the Wings!! (illumination STARS Ver.)
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_02_03" class="select_one">
+                                                <span>Spread the Wings!! (illumination STARS Ver.)</span>
                                             </label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <label style="cursor:pointer">
-                                        <input type="checkbox" data-id="album:03" class="select">BRILLI@NT WING 03 バベルシティ・グレイス
+                                        <input type="checkbox" data-checkbox-id="01_03" class="select">BRILLI@NT WING 03 バベルシティ・グレイス
                                     </label>
                                     <div class="collapsible"> | 펼치기</div>
                                     <ul class="collapsible_content">
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:01" class="select_one">
-                                                <span>
-                                                    バベルシティ・グレイス
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_03_01" class="select_one">
+                                                <span>バベルシティ・グレイス</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:02" class="select_one">
-                                                <span>
-                                                    幻惑SILHOUETTE
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_03_02" class="select_one">
+                                                <span>幻惑SILHOUETTE</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:03" class="select_one">
-                                                <span>
-                                                    Spread the Wings!! (L’Antica Ver.)
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_03_03" class="select_one">
+                                                <span>Spread the Wings!! (L’Antica Ver.)</span>
                                             </label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <label style="cursor:pointer">
-                                        <input type="checkbox" data-id="album:04" class="select">BRILLI@NT WING 04 夢咲きAfter school
+                                        <input type="checkbox" data-checkbox-id="01_04" class="select">BRILLI@NT WING 04 夢咲きAfter school
                                     </label>
                                     <div class="collapsible"> | 펼치기</div>
                                     <ul class="collapsible_content">
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:01" class="select_one">
-                                                <span>
-                                                    夢咲きAfter school
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_04_01" class="select_one">
+                                                <span>夢咲きAfter school</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:02" class="select_one">
-                                                <span>
-                                                    太陽キッス
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_04_02" class="select_one">
+                                                <span>太陽キッス</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:03" class="select_one">
-                                                <span>
-                                                    Spread the Wings!! (放課後クライマックスガールズ Ver.)
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_04_03" class="select_one">
+                                                <span>Spread the Wings!! (放課後クライマックスガールズ Ver.)</span>
                                             </label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <label style="cursor:pointer">
-                                        <input type="checkbox" data-id="album:05" class="select">BRILLI@NT WING 05 アルストロメリア
+                                        <input type="checkbox" data-checkbox-id="01_05" class="select">BRILLI@NT WING 05 アルストロメリア
                                     </label>
                                     <div class="collapsible"> | 펼치기</div>
                                     <ul class="collapsible_content">
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:01" class="select_one">
-                                                <span>
-                                                    アルストロメリア
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_05_01" class="select_one">
+                                                <span>アルストロメリア</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:02" class="select_one">
-                                                <span>
-                                                    ハピリリ
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_05_02" class="select_one">
+                                                <span>ハピリリ</span>
                                             </label>
                                         </li>
                                         <li>
                                             <label style="cursor:pointer">
-                                                <input type="checkbox" data-id="song:03" class="select_one">
-                                                <span>
-                                                    Spread the Wings!! (ALSTROEMERIA Ver.)
-                                                </span>
+                                                <input type="checkbox" data-checkbox-id="01_05_03" class="select_one">
+                                                <span>Spread the Wings!! (ALSTROEMERIA Ver.)</span>
                                             </label>
                                         </li>
                                     </ul>

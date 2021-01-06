@@ -32,4 +32,4 @@ var links = {
         "ハピリリ": "./src/album_cover/BRILLI@NT_WING_05.webp",
         "Spread the Wings!! (ALSTROEMERIA Ver.)": "./src/album_cover/BRILLI@NT_WING_05.webp",
     }
-}
+};
