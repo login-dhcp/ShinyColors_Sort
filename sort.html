@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.75, maximum-scale=2">
     <meta name="robots" content="index, follow">
     <title> 샤니마스 소트 </title>
-    <link rel="stylesheet" href="./assets/header.css">
-    <link rel="stylesheet" href="./assets/app.css?version=1">
+    <link rel="stylesheet" href="./assets/common.css">
 </head>
 
 <body>
@@ -26,512 +25,1237 @@
     </header>
     <!-- /header -->
     <!-- content -->
-    <div id="sortMain" sort-phase="ready">
-        Description<br />
-        <div id="sortDescription">
-            <div id="sortDescriptionMain">
-                * 비교할 목록들을 선택한 후 Start 버튼을 눌러주세요
+    <div id="container">
+        <div id="sort_main" sort-phase="ready">
+            <!-- 안내 및 설명 -->
+            <div id="sort_description">
+                Description<br />
+                <div id="sort_description_main">* 페이지 하단의 목록에서 비교할 일러스트들을 선택한 후 Start 버튼을 눌러주세요.</div>
+                <div id="sort_description_ongoing">* 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다.</div>
+                <div id="sort_option_panel">
+                    <span> Select Options </span>
+                    <div id="sort_method">
+                        <span> * 소트 방법 </span>
+                        <!-- <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_original" name="sort_method" value="original" checked="checked"> 적당히(추천)
+                        </label> -->
+                        <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_tournament" name="sort_method" value="tournament"> 토너먼트
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_league" name="sort_method" value="league"> 리그
+                        </label>
+                    </div>
+                </div>
+                <!--TODO move onclick=func() to js-->
+                <button id="sort_start">Start</button>
             </div>
-            <div id="sortDescriptionOngoing">
-                * 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다
+            <!-- //안내 및 설명 -->
+            <!-- 실제 소트 창 -->
+            <div id="sort_window">
+                <div id="sort_left_panel">
+                    <label style="cursor:pointer">
+                        <img id="sort_left_image" class="img"><br />
+                        <button id="sort_left_button" onclick="next(this.id)"></button><br />
+                    </label>
+                    <!-- <audio controls id="sort_left_audio"></audio><br /> -->
+                </div>
+                <div id="sort_right_panel">
+                    <label style="cursor: pointer;">
+                        <img id="sort_right_image" class="img"><br />
+                        <button id="sort_right_button" onclick="next(this.id)"></button><br />
+                    </label>
+                    <!-- <audio controls id="sort_right_audio"></audio><br /> -->
+                </div>
+                <div id="sort_bottom_panel">
+                    <!-- TODO 무승부, 버리기, 및 control panel, options 등 -->
+                </div>
             </div>
-            <button id="sortStart" onclick="startSort()">
-                Start
-            </button>
-        </div>
-        <div id="sortWindow">
-            <div id="sortImagePanel">
-                <img id="sortLeftImage" class="img" onclick="next('sortLeftButton')">
-                <img id="sortRightImage" class="img" onclick="next('sortRightButton')">
+            <!-- 실제 소트 창 -->
+            <div id="sort_result">
             </div>
-            <div id="sortChoicePanel">
-                <button id="sortLeftButton" onclick="next(this.id)">
-                </button>
-                <button id="sortRightButton" onclick="next(this.id)">
-                </button>
-            </div>
-        </div>
-        <div id="sortResult">
             <!-- Result -->
         </div>
-    </div>
-    <br />
-    <div id="sortList">
-        목록
-        <div id="sotrListCheckbox">
-            <ul>
-                <button id="selectAll" onclick="selectAll(true)">
-                    전체 선택
-                </button>
-                <button id="disselectAll" onclick="selectAll(false)">
-                    전체 해제
-                </button>
-            </ul>
-            <ul>
-                illumination STARS
-                <li>
-                    <input type="checkbox" id="select_all:1" class="select_all">
-                    <label for="select_all:1">사쿠라기 마노</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_1_P_SSR_01" class="select_one">
-                            <label for="entry_1_P_SSR_01">【ほわっとスマイル】櫻木真乃</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_1_P_SR_01" class="select_one">
-                            <label for="entry_1_P_SR_01">【ナチュラルモード】櫻木真乃</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_1_P_R_01" class="select_one">
-                            <label for="entry_1_P_R_01">【白いツバサ】櫻木真乃</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:2" class="select_all">
-                    <label for="select_all:2">카자노 히오리</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_2_P_SSR_01" class="select_one">
-                            <label for="entry_2_P_SSR_01">【柔らかな微笑み】風野灯織</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_2_P_SR_01" class="select_one">
-                            <label for="entry_2_P_SR_01">【手作りの心遣い】風野灯織</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_2_P_R_01" class="select_one">
-                            <label for="entry_2_P_R_01">【白いツバサ】風野灯織</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:3" class="select_all">
-                    <label for="select_all:3">하치미야 메구루</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_3_P_SSR_01" class="select_one">
-                            <label for="entry_3_P_SSR_01">【金色の元気いっぱいガール】八宮めぐる</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_3_P_SR_01" class="select_one">
-                            <label for="entry_3_P_SR_01">【キネマ・リリックで夢見て】八宮めぐる</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_3_P_R_01" class="select_one">
-                            <label for="entry_3_P_R_01">【白いツバサ】八宮めぐる</label>
-                        </li>
-                    </ul>
-                </li>
-                </li>
-            </ul>
-            <ul>
-                L'Antica
-                <li>
-                    <input type="checkbox" id="select_all:4" class="select_all">
-                    <label for="select_all:4">츠키오카 코가네</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_4_P_SSR_01" class="select_one">
-                            <label for="entry_4_P_SSR_01">【ばりうまかブルース】月岡恋鐘</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_4_P_SR_01" class="select_one">
-                            <label for="entry_4_P_SR_01">【ばってん長崎恋岬】月岡恋鐘</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_4_P_R_01" class="select_one">
-                            <label for="entry_4_P_R_01">【白いツバサ】月岡恋鐘</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:5" class="select_all">
-                    <label for="select_all:5">타나카 마미미</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_5_P_SSR_01" class="select_one">
-                            <label for="entry_5_P_SSR_01">【トリッキーナイト】田中摩美々</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_5_P_SR_01" class="select_one">
-                            <label for="entry_5_P_SR_01">【裏腹あまのじゃく】田中摩美々</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_5_P_R_01" class="select_one">
-                            <label for="entry_5_P_R_01">【白いツバサ】田中摩美々</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:6" class="select_all">
-                    <label for="select_all:6">시라세 사쿠야</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_6_P_SSR_01" class="select_one">
-                            <label for="entry_6_P_SSR_01">【紺碧のボーダーライン】白瀬咲耶</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_6_P_SR_01" class="select_one">
-                            <label for="entry_6_P_SR_01">【秘めやかファンサービス】白瀬咲耶</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_6_P_R_01" class="select_one">
-                            <label for="entry_6_P_R_01">【白いツバサ】白瀬咲耶</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:7" class="select_all">
-                    <label for="select_all:7">미츠미네 유이카</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_7_P_SSR_01" class="select_one">
-                            <label for="entry_7_P_SSR_01">【お試し／みつゴコロ】三峰結華</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_7_P_SR_01" class="select_one">
-                            <label for="entry_7_P_SR_01">【カラフルメタモルフォーゼ】三峰結華</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_7_P_R_01" class="select_one">
-                            <label for="entry_7_P_R_01">【白いツバサ】三峰結華</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:8" class="select_all">
-                    <label for="select_all:8">유코쿠 키리코</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_8_P_SSR_01" class="select_one">
-                            <label for="entry_8_P_SSR_01">【霧・音・燦・燦】幽谷霧子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_8_P_SR_01" class="select_one">
-                            <label for="entry_8_P_SR_01">【包・帯・組・曲】幽谷霧子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_8_P_R_01" class="select_one">
-                            <label for="entry_8_P_R_01">【白いツバサ】幽谷霧子</label>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul>
-                放課後ｸﾗｲﾏｯｸｽｶﾞｰﾙｽﾞ
-                <li>
-                    <input type="checkbox" id="select_all:9" class="select_all">
-                    <label for="select_all:9">코미야 카호</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_9_P_SSR_01" class="select_one">
-                            <label for="entry_9_P_SSR_01">【第2形態アーマードタイプ】小宮果穂</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_9_P_SR_01" class="select_one">
-                            <label for="entry_9_P_SR_01">【マメ丸と一緒！】小宮果穂</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_9_P_R_01" class="select_one">
-                            <label for="entry_9_P_R_01">【白いツバサ】小宮果穂</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:10" class="select_all">
-                    <label for="select_all:10">소노다 치요코</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_10_P_SSR_01" class="select_one">
-                            <label for="entry_10_P_SSR_01">【ちょこ色×きらきらロマン】園田智代子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_10_P_SR_01" class="select_one">
-                            <label for="entry_10_P_SR_01">【純真チョコレート】園田智代子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_10_P_R_01" class="select_one">
-                            <label for="entry_10_P_R_01">【白いツバサ】園田智代子</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:11" class="select_all">
-                    <label for="select_all:11">사이죠 쥬리</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_11_P_SSR_01" class="select_one">
-                            <label for="entry_11_P_SSR_01">【ラムネ色の覚悟】西城樹里</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_11_P_SR_01" class="select_one">
-                            <label for="entry_11_P_SR_01">【バッドガールの羽ばたき】西城樹里</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_11_P_R_01" class="select_one">
-                            <label for="entry_11_P_R_01">【白いツバサ】西城樹里</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:12" class="select_all">
-                    <label for="select_all:12">모리노 린제</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_12_P_SSR_01" class="select_one">
-                            <label for="entry_12_P_SSR_01">【杜野凛世の印象派】杜野凛世</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_12_P_SR_01" class="select_one">
-                            <label for="entry_12_P_SR_01">【想ひいろは】杜野凛世</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_12_P_R_01" class="select_one">
-                            <label for="entry_12_P_R_01">【白いツバサ】杜野凛世</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:13" class="select_all">
-                    <label for="select_all:13">아리스가와 나츠하</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_13_P_SSR_01" class="select_one">
-                            <label for="entry_13_P_SSR_01">【アルティメットマーメイド】有栖川夏葉</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_13_P_SR_01" class="select_one">
-                            <label for="entry_13_P_SR_01">【ストイックトレーニング】有栖川夏葉</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_13_P_R_01" class="select_one">
-                            <label for="entry_13_P_R_01">【白いツバサ】有栖川夏葉</label>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul>
-                ALSTROEMERIA
-                <li>
-                    <input type="checkbox" id="select_all:14" class="select_all">
-                    <label for="select_all:14">오사키 아마나</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_14_P_SSR_01" class="select_one">
-                            <label for="entry_14_P_SSR_01">【スタンバイオッケー】大崎甘奈</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_14_P_SR_01" class="select_one">
-                            <label for="entry_14_P_SR_01">【似合うかな？】大崎甘奈</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_14_P_R_01" class="select_one">
-                            <label for="entry_14_P_R_01">【白いツバサ】大崎甘奈</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:15" class="select_all">
-                    <label for="select_all:15">오사키 텐카</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_15_P_SSR_01" class="select_one">
-                            <label for="entry_15_P_SSR_01">【事務所。静寂。大輪の華】大崎甜花</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_15_P_SR_01" class="select_one">
-                            <label for="entry_15_P_SR_01">【秘密のだらだらタイム】大崎甜花</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_15_P_R_01" class="select_one">
-                            <label for="entry_15_P_R_01">【白いツバサ】大崎甜花</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:16" class="select_all">
-                    <label for="select_all:16">쿠와야마 치유키</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_16_P_SSR_01" class="select_one">
-                            <label for="entry_16_P_SSR_01">【マイ・ピュア・ロマンス】桑山千雪</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_16_P_SR_01" class="select_one">
-                            <label for="entry_16_P_SR_01">【マイフェイバリット】桑山千雪</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_16_P_R_01" class="select_one">
-                            <label for="entry_16_P_R_01">【白いツバサ】桑山千雪</label>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul>
-                Straylight
-                <li>
-                    <input type="checkbox" id="select_all:17" class="select_all">
-                    <label for="select_all:17">세리자와 아사히</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_17_P_SSR_01" class="select_one">
-                            <label for="entry_17_P_SSR_01">【ジャンプ！スタッグ！！！】芹沢あさひ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_17_P_SR_01" class="select_one">
-                            <label for="entry_17_P_SR_01">【さかさま世界】芹沢あさひ</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_17_P_R_01" class="select_one">
-                            <label for="entry_17_P_R_01">【白いツバサ】芹沢あさひ</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:18" class="select_all">
-                    <label for="select_all:18">마유즈미 후유코</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_18_P_SSR_01" class="select_one">
-                            <label for="entry_18_P_SSR_01">【オ♡フ♡レ♡コ】黛冬優子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_18_P_SR_01" class="select_one">
-                            <label for="entry_18_P_SR_01">【ザ・冬優子イズム】黛冬優子</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_18_P_R_01" class="select_one">
-                            <label for="entry_18_P_R_01">【白いツバサ】黛冬優子</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:19" class="select_all">
-                    <label for="select_all:19">이즈미 메이</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_19_P_SSR_01" class="select_one">
-                            <label for="entry_19_P_SSR_01">【ちょっとあげる～】和泉愛依</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_19_P_SR_01" class="select_one">
-                            <label for="entry_19_P_SR_01">【気になる！？染めちゃう！？】和泉愛依</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_19_P_R_01" class="select_one">
-                            <label for="entry_19_P_R_01">【白いツバサ】和泉愛依</label>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul>
-                noctchill
-                <li>
-                    <input type="checkbox" id="select_all:20" class="select_all">
-                    <label for="select_all:20">아사쿠라 토오루</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_20_P_SSR_01" class="select_one">
-                            <label for="entry_20_P_SSR_01">【10個、光】浅倉透</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_20_P_R_01" class="select_one">
-                            <label for="entry_20_P_R_01">【白いツバサ】浅倉透</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:21" class="select_all">
-                    <label for="select_all:21">히구치 마도카</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_21_P_SSR_01" class="select_one">
-                            <label for="entry_21_P_SSR_01">【カラカラカラ】樋口円香</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_21_P_R_01" class="select_one">
-                            <label for="entry_21_P_R_01">【白いツバサ】樋口円香</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:22" class="select_all">
-                    <label for="select_all:22">후쿠마루 코이토</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_22_P_SSR_01" class="select_one">
-                            <label for="entry_22_P_SSR_01">【ポシェットの中には】福丸小糸</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_22_P_R_01" class="select_one">
-                            <label for="entry_22_P_R_01">【白いツバサ】福丸小糸</label>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="select_all:23" class="select_all">
-                    <label for="select_all:23">이치카와 히나나</label>
-                    <div class="collapsible"> | 펼치기</div>
-                    <ul class="collapsible_content">
-                        <li>
-                            <input type="checkbox" id="entry_23_P_SSR_01" class="select_one">
-                            <label for="entry_23_P_SSR_01">【HAPPY-!NG】市川雛菜</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_23_P_SR_01" class="select_one">
-                            <label for="entry_23_P_SR_01">【SS】市川雛菜</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="entry_23_P_R_01" class="select_one">
-                            <label for="entry_23_P_R_01">【白いツバサ】市川雛菜</label>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <br />
+        <div id="sortList">
+            목록
+            <div id="sotrListCheckbox">
+                <ul>
+                    <button id="btn_select_all">전체 선택</button>
+                    <button id="btn_select_none">전체 해제</button>
+                </ul>
+                <ul>
+                    illumination STARS
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="01" class="select"> 사쿠라기 마노
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="01_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="01_01_01" class="select_one">
+                                            <span>【ほわっとスマイル】櫻木真乃</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="01_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="01_02_01" class="select_one">
+                                            <span>【ナチュラルモード】櫻木真乃</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="01_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="01_03_01" class="select_one">
+                                            <span>【白いツバサ】櫻木真乃</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="02" class="select"> 카자노 히오리
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="02_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="02_01_01" class="select_one">
+                                            <span>【柔らかな微笑み】風野灯織</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="02_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="02_02_01" class="select_one">
+                                            <span>【手作りの心遣い】風野灯織</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="02_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="02_03_01" class="select_one">
+                                            <span>【白いツバサ】風野灯織</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="03" class="select"> 하치미야 메구루
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="03_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="03_01_01" class="select_one">
+                                            <span>【金色の元気いっぱいガール】八宮めぐる</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="03_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="03_02_01" class="select_one">
+                                            <span>【キネマ・リリックで夢見て】八宮めぐる</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="03_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="03_03_01" class="select_one">
+                                            <span>【白いツバサ】八宮めぐる</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    L'Antica
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="04" class="select"> 츠키오카 코가네
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="04_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="04_01_01" class="select_one">
+                                            <span>【ばりうまかブルース】月岡恋鐘</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="04_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="04_02_01" class="select_one">
+                                            <span>【ばってん長崎恋岬】月岡恋鐘</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="04_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="04_03_01" class="select_one">
+                                            <span>【白いツバサ】月岡恋鐘</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="05" class="select"> 타나카 마미미
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="05_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="05_01_01" class="select_one">
+                                            <span>【トリッキーナイト】田中摩美々</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="05_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="05_02_01" class="select_one">
+                                            <span>【裏腹あまのじゃく】田中摩美々</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="05_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="05_03_01" class="select_one">
+                                            <span>【白いツバサ】田中摩美々</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="06" class="select"> 시라세 사쿠야
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="06_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="06_01_01" class="select_one">
+                                            <span>【紺碧のボーダーライン】白瀬咲耶</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="06_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="06_02_01" class="select_one">
+                                            <span>【秘めやかファンサービス】白瀬咲耶</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="06_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="06_03_01" class="select_one">
+                                            <span>【白いツバサ】白瀬咲耶</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="07" class="select"> 미츠미네 유이카
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="07_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="07_01_01" class="select_one">
+                                            <span>【お試し／みつゴコロ】三峰結華</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="07_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="07_02_01" class="select_one">
+                                            <span>【カラフルメタモルフォーゼ】三峰結華</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="07_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="07_03_01" class="select_one">
+                                            <span>【白いツバサ】三峰結華</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="08" class="select"> 유코쿠 키리코
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="08_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="08_01_01" class="select_one">
+                                            <span>【霧・音・燦・燦】幽谷霧子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="08_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="08_02_01" class="select_one">
+                                            <span>【包・帯・組・曲】幽谷霧子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="08_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="08_03_01" class="select_one">
+                                            <span>【白いツバサ】幽谷霧子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    放課後ｸﾗｲﾏｯｸｽｶﾞｰﾙｽﾞ
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="09" class="select"> 코미야 카호
+                        </label>
+                        <div class="collapsible"> | 펼치기 </div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="09_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="09_01_01" class="select_one">
+                                            <span>【第2形態アーマードタイプ】小宮果穂</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="09_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="09_02_01" class="select_one">
+                                            <span>【マメ丸と一緒！】小宮果穂</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="09_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="09_03_01" class="select_one">
+                                            <span>【白いツバサ】小宮果穂</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="10" class="select"> 소노다 치요코
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="10_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="10_01_01" class="select_one">
+                                            <span>【ちょこ色×きらきらロマン】園田智代子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="10_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="10_02_01" class="select_one">
+                                            <span>【純真チョコレート】園田智代子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="10_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="10_03_01" class="select_one">
+                                            <span>【白いツバサ】園田智代子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="11" class="select"> 사이죠 쥬리
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="11_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="11_01_01" class="select_one">
+                                            <span>【ラムネ色の覚悟】西城樹里</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="11_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="11_02_01" class="select_one">
+                                            <span>【バッドガールの羽ばたき】西城樹里</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="11_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="11_03_01" class="select_one">
+                                            <span>【白いツバサ】西城樹里</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="12" class="select"> 모리노 린제
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="12_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="12_01_01" class="select_one">
+                                            <span>【杜野凛世の印象派】杜野凛世</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="12_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="12_02_01" class="select_one">
+                                            <span>【想ひいろは】杜野凛世</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="12_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="12_03_01" class="select_one">
+                                            <span>【白いツバサ】杜野凛世</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="13" class="select"> 아리스가와 나츠하
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="13_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="13_01_01" class="select_one">
+                                            <span>【アルティメットマーメイド】有栖川夏葉</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="13_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="13_02_01" class="select_one">
+                                            <span>【ストイックトレーニング】有栖川夏葉</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="13_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="13_03_01" class="select_one">
+                                            <span>【白いツバサ】有栖川夏葉</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    ALSTROEMERIA
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="14" class="select"> 오사키 아마나
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="14_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="14_01_01" class="select_one">
+                                            <span>【スタンバイオッケー】大崎甘奈</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="14_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="14_02_01" class="select_one">
+                                            <span>【似合うかな？】大崎甘奈</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="14_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="14_03_01" class="select_one">
+                                            <span>【白いツバサ】大崎甘奈</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="15" class="select"> 오사키 텐카
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="15_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="15_01_01" class="select_one">
+                                            <span>【事務所。静寂。大輪の華】大崎甜花</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="15_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="15_02_01" class="select_one">
+                                            <span>【秘密のだらだらタイム】大崎甜花</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="15_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="15_03_01" class="select_one">
+                                            <span>【白いツバサ】大崎甜花</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="16" class="select"> 쿠와야마 치유키
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="16_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="16_01_01" class="select_one">
+                                            <span>【マイ・ピュア・ロマンス】桑山千雪</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="16_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="16_02_01" class="select_one">
+                                            <span>【マイフェイバリット】桑山千雪</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="16_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="16_03_01" class="select_one">
+                                            <span>【白いツバサ】桑山千雪</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    Straylight
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="17" class="select"> 세리자와 아사히
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="17_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="17_01_01" class="select_one">
+                                            <span>【ジャンプ！スタッグ！！！】芹沢あさひ</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="17_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="17_02_01" class="select_one">
+                                            <span>【さかさま世界】芹沢あさひ</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="17_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="17_03_01" class="select_one">
+                                            <span>【白いツバサ】芹沢あさひ</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="18" class="select"> 마유즈미 후유코
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="18_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="18_01_01" class="select_one">
+                                            <span>【オ♡フ♡レ♡コ】黛冬優子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="18_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="18_02_01" class="select_one">
+                                            <span>【ザ・冬優子イズム】黛冬優子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="18_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="18_03_01" class="select_one">
+                                            <span>【白いツバサ】黛冬優子</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="19" class="select"> 이즈미 메이
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="19_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="19_01_01" class="select_one">
+                                            <span>【ちょっとあげる～】和泉愛依</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="19_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="19_02_01" class="select_one">
+                                            <span>【気になる！？染めちゃう！？】和泉愛依</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="19_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="19_03_01" class="select_one">
+                                            <span>【白いツバサ】和泉愛依</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    noctchill
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="20" class="select"> 아사쿠라 토오루
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="20_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="20_01_01" class="select_one">
+                                            <span>【10個、光】浅倉透</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="20_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="20_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="20_03_01" class="select_one">
+                                            <span>【白いツバサ】浅倉透</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="21" class="select"> 히구치 마도카
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="21_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="21_01_01" class="select_one">
+                                            <span>【カラカラカラ】樋口円香</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="21_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="21_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="21_03_01" class="select_one">
+                                            <span>【白いツバサ】樋口円香</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="22" class="select"> 후쿠마루 코이토
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="22_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="22_01_01" class="select_one">
+                                            <span>【ポシェットの中には】福丸小糸</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="22_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="22_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="22_03_01" class="select_one">
+                                            <span>【白いツバサ】福丸小糸</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label style="cursor: pointer;">
+                            <input type="checkbox" data-checkbox-id="23" class="select"> 이치카와 히나나
+                        </label>
+                        <div class="collapsible"> | 펼치기</div>
+                        <ul class="collapsible_content">
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="23_01" class="select"> P_SSR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="23_01_01" class="select_one">
+                                            <span>【HAPPY-!NG】市川雛菜</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="23_02" class="select"> P_SR
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <input type="checkbox" data-checkbox-id="23_02_01" class="select_one">
+                                        <span>【SS】市川雛菜</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label style="cursor: pointer;">
+                                    <input type="checkbox" data-checkbox-id="23_03" class="select"> P_R
+                                </label>
+                                <div class="collapsible"> | 펼치기</div>
+                                <ul class="collapsible_content">
+                                    <li>
+                                        <label style="cursor: pointer;">
+                                            <input type="checkbox" data-checkbox-id="23_03_01" class="select_one">
+                                            <span>【白いツバサ】市川雛菜</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <!-- /content -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./assets/app.js?version=1"></script>
+    <script type="text/javascript" src="./assets/sort.js?version=1"></script>
+    <script type="text/javascript" src="./assets/sort_illust.js?version=1"></script>
 </body>
 <footer>
-    <div id="updateDate">
-        최신 업데이트: 2020/11/28
+    <div id="latest_update">
+        최신 업데이트: 2021/01/13
     </div>
-    <div id="CopyRight">
+    <div id="copyright">
         본 페이지에서 사용하는 이미지 및 파일들의 저작권 및 기타 지적 재산권은 BANDAI NAMCO Entertainment, BXD Inc. 또는 기타 라이센스 제공자에 귀속됩니다. 본 사이트는 BANDAI NAMCO 및 BXD와 무관합니다.
     </div>
-    <div id="Author">
+    <div id="author">
         제작자: 로긴유동(login_dhcp, nonamed424@gmail.com)
-        <a href="https://github.com/login-dhcp">
-            github
-        </a>
-        <a href="https://twitter.com/login_dhcp">
-            twitter
-        </a>
+        <a href="https://github.com/login-dhcp">github</a>
     </div>
 </footer>
 

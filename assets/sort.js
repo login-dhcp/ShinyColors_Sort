@@ -90,7 +90,7 @@ function setMaxScore() {
         max_score = len_entry - 1;
         cur_score = 0;
     } else {
-        alert('notImplemented');
+        alert('notImplementedError');
     }
 
 }
@@ -115,23 +115,59 @@ function initCands(cur_score) {
     }
 }
 
-function setVSScreen(key1, key2) {
-    let leftImage = document.getElementById('sort_left_image');
-    // leftImage.src = "images/" + String(key1) + ".png";
-    leftImage.src = links['image'][key1];
-    leftImage.width = 256;
-    leftImage.height = 256;
-    document.getElementById("sort_left_button").innerText = key1;
-    document.getElementById("sort_left_audio").src = links['audio'][key1];
+function nextVS_tournament() {
+    len_cands = Object.keys(Cands).length
+    if (len_cands > 1) {
+        let rnd1 = Math.floor(Math.random() * Object.keys(Cands).length);
+        key1 = Object.keys(Cands)[rnd1];
+        delete Cands[key1];
 
-    let rightImage = document.getElementById('sort_right_image');
-    // rightImage.src = "images/" + String(key2) + ".png";
-    rightImage.src = links['image'][key2];
-    rightImage.width = 256;
-    rightImage.height = 256;
-    document.getElementById("sort_right_button").innerText = key2;
-    document.getElementById("sort_right_audio").src = links['audio'][key2];
+        let rnd2 = Math.floor(Math.random() * Object.keys(Cands).length);
+        key2 = Object.keys(Cands)[rnd2];
+        delete Cands[key2];
+        setVSScreen(key1, key2);
+    } else {
+        if (len_cands === 1) {
+            if (cur_score + 1 === max_score) {
+                changeSortPhaseTo('done');
+                getResult();
+                return;
+            } else {
+                key = Object.keys(Cands)[0];
+                entryList[key] += 1;
+            }
+        }
+        cur_score += 1;
+        initCands(cur_score);
+        nextVS();
+    }
 }
+
+function nextVS_league() {
+    if (Cands_league.length > 0) {
+        var rnd = Math.floor(Math.random() * Cands_league.length);
+        compare = Cands_league[rnd];
+        Cands_league.splice(rnd, 1);
+
+        idx1 = compare[0];
+        idx2 = compare[1];
+        if (Math.random() > 0.5) {
+            [idx1, idx2] = [idx2, idx1];
+        }
+
+        key1 = Object.keys(Cands)[idx1];
+        key2 = Object.keys(Cands)[idx2];
+
+        setVSScreen(key1, key2);
+    } else {
+        if (Cands_league.length === 0) {
+            changeSortPhaseTo('done');
+            getResult();
+            return;
+        }
+    }
+}
+
 
 function nextVS() {
     if (cur_score === max_score) {
@@ -141,55 +177,11 @@ function nextVS() {
     }
 
     if (sort_method == 'tournament') {
-        len_cands = Object.keys(Cands).length
-        if (len_cands > 1) {
-            let rnd1 = Math.floor(Math.random() * Object.keys(Cands).length);
-            key1 = Object.keys(Cands)[rnd1];
-            delete Cands[key1];
-
-            let rnd2 = Math.floor(Math.random() * Object.keys(Cands).length);
-            key2 = Object.keys(Cands)[rnd2];
-            delete Cands[key2];
-            setVSScreen(key1, key2);
-        } else {
-            if (len_cands === 1) {
-                if (cur_score + 1 === max_score) {
-                    changeSortPhaseTo('done');
-                    getResult();
-                    return;
-                } else {
-                    key = Object.keys(Cands)[0];
-                    entryList[key] += 1;
-                }
-            }
-            cur_score += 1;
-            initCands(cur_score);
-            nextVS();
-        }
+        nextVS_tournament();
     } else if (sort_method == 'league') {
-        if (Cands_league.length > 0) {
-            var rnd = Math.floor(Math.random() * Cands_league.length);
-            compare = Cands_league[rnd];
-            Cands_league.splice(rnd, 1);
-
-            idx1 = compare[0];
-            key1 = Object.keys(Cands)[idx1];
-            idx2 = compare[1];
-            key2 = Object.keys(Cands)[idx2];
-
-            setVSScreen(key1, key2);
-        } else {
-            if (Cands_league.length === 0) {
-                changeSortPhaseTo('done');
-                getResult();
-                return;
-            }
-            nextVS();
-        }
-
-
+        nextVS_league();
     } else {
-        alsert('notImplemented2');
+        alsert('notImplementedError');
     }
 
 }
@@ -236,22 +228,6 @@ function getResult() {
     })
     result_str = beatutify(result);
     showResult(result_str);
-}
-
-function beatutify(result) {
-    let result_str = 'Result<br />';
-    for (let i = 0; i < result.length; i++) {
-        data = result[i];
-        result_str += ' ' + String(data[1][2]) + '위: ';
-        result_str += String(data[1][0]);
-        result_str += '<br />'
-        result_str += `<img class="img" src="${links['image'][data[1][0]]}" style='width:256; height:256;'>`
-        // result_str += '<br />';
-        result_str += `<audio controls src="${links['audio'][data[1][0]]}"></audio>`;
-        result_str += '<br />';
-    }
-    return result_str;
-
 }
 
 function selectAll() {
