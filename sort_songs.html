@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.75, maximum-scale=2">
     <meta name="robots" content="index, follow">
     <title> 샤니마스 소트 </title>
-    <link rel="stylesheet" href="./assets/songs.css?version=1">
+    <link rel="stylesheet" href="./assets/songs.css?version=2">
 </head>
 
 <body>
@@ -30,11 +30,22 @@
             <!-- 안내 및 설명 -->
             <div id="sort_description">
                 Description<br />
-                <div id="sort_description_main">
-                    * 비교할 목록들을 선택한 후 Start 버튼을 눌러주세요
-                </div>
-                <div id="sort_description_ongoing">
-                    * 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다
+                <div id="sort_description_main">* 페이지 하단의 목록에서 비교할 음반들을 선택한 후 Start 버튼을 눌러주세요</div>
+                <div id="sort_description_ongoing">* 이미지, 버튼 중 어느것을 눌러도 다음으로 넘어갑니다</div>
+                <div id="sort_option_panel">
+                    <span>Select Options</span>
+                    <div id="sort_method">
+                        <span>* 소트 방법</span>
+                        <!-- <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_original" name="sort_method" value="original" checked="checked"> 적당히(추천)
+                        </label> -->
+                        <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_tournament" name="sort_method" value="tournament"> 토너먼트
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" id="sort_method_league" name="sort_method" value="league"> 리그
+                        </label>
+                    </div>
                 </div>
                 <button id="sort_start">
                     Start
@@ -71,8 +82,8 @@
             목록
             <div id="sort_list_checkbox">
                 <ul>
-                    <button id="btn_select_all" onclick="selectAll(true)">전체 선택</button>
-                    <button id="btn_select_none" onclick="selectAll(false)">전체 해제</button>
+                    <button id="btn_select_all">전체 선택</button>
+                    <button id="btn_select_none">전체 해제</button>
                 </ul>
                 <ul>
                     BRILLI@NT WING series
@@ -217,8 +228,8 @@
     <!-- /content -->
     <div id="scripts">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="./assets/songs.js?version=1"></script>
-        <script type="text/javascript" src="./assets/links.js?version=1"></script>
+        <script type="text/javascript" src="./assets/songs.js?version=2"></script>
+        <script type="text/javascript" src="./assets/links.js?version=2"></script>
     </div>
 </body>
 <footer>

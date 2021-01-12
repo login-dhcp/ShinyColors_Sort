@@ -23,33 +23,43 @@ function changeSortPhaseTo(value) {
 ///////////////////////////////////////////////
 var entryList = {};
 var Cands = {};
+var Cands_league = [];
 var max_score = 0;
 var cur_score = 0;
-
+var sort_method = "original";
 
 function startSort() {
-    let elem = document.getElementById('sort_main');
-    let phaseAttr = 'sort-phase';
-    let phase = elem.getAttribute(phaseAttr);
-    if (phase == "done") {
-        changeSortPhaseTo("ready");
-        return;
-    } else if (phase == "ready") {
-        if (getEntryList().length === 0) {
-            alert('목록에서 한 개 이상 선택해주세요');
+    var selector = document.querySelector('input[name="sort_method"]:checked');
+    if (selector) {
+        sort_method = selector.value;
+        let elem = document.getElementById('sort_main');
+        let phaseAttr = 'sort-phase';
+        let phase = elem.getAttribute(phaseAttr);
+        if (phase == "done") {
+            changeSortPhaseTo("ready");
             return;
+        } else if (phase == "ready") {
+            if (getEntryList().length === 0) {
+                alert('목록에서 한 개 이상 선택해주세요');
+                return;
+            } else {
+                setCands();
+                setMaxScore();
+                initCands(cur_score);
+                changeSortPhaseTo('ongoing');
+                nextVS();
+                return;
+            }
         } else {
-            setCands();
-            setMaxScore();
-            initCands(cur_score);
-            changeSortPhaseTo('ongoing');
-            nextVS();
+            alert('진행중인 소트를 끝내거나 창을 새로고침해주세요')
             return;
         }
     } else {
-        alert('진행중인 소트를 끝내거나 창을 새로고침해주세요')
+        alert('소트 방법을 선택해주세요')
         return;
     }
+
+
 }
 
 function getEntryList() {
@@ -71,9 +81,18 @@ function setCands() {
 }
 
 function setMaxScore() {
-    let len_entry = Object.keys(entryList).length;
-    max_score = Math.ceil(Math.log(len_entry)) + 1; //TODO
-    cur_score = 0;
+    if (sort_method === 'tournament') {
+        let len_entry = Object.keys(entryList).length;
+        max_score = Math.ceil(Math.log(len_entry)) + 1; //TODO
+        cur_score = 0;
+    } else if (sort_method === 'league') {
+        let len_entry = Object.keys(entryList).length;
+        max_score = len_entry - 1;
+        cur_score = 0;
+    } else {
+        alert('notImplemented');
+    }
+
 }
 
 
@@ -85,6 +104,15 @@ function initCands(cur_score) {
         }
     }
     Cands = Cands_new;
+
+    if (sort_method === 'league') {
+        Cands_league = [];
+        for (let i = 0; i < Object.keys(Cands).length; i++) {
+            for (let j = i + 1; j < Object.keys(Cands).length; j++) {
+                Cands_league.push([i, j]);
+            }
+        }
+    }
 }
 
 function setVSScreen(key1, key2) {
@@ -112,31 +140,58 @@ function nextVS() {
         return;
     }
 
-    len_cands = Object.keys(Cands).length
-    if (len_cands > 1) {
-        let rnd1 = Math.floor(Math.random() * Object.keys(Cands).length);
-        key1 = Object.keys(Cands)[rnd1];
-        delete Cands[key1];
+    if (sort_method == 'tournament') {
+        len_cands = Object.keys(Cands).length
+        if (len_cands > 1) {
+            let rnd1 = Math.floor(Math.random() * Object.keys(Cands).length);
+            key1 = Object.keys(Cands)[rnd1];
+            delete Cands[key1];
 
-        let rnd2 = Math.floor(Math.random() * Object.keys(Cands).length);
-        key2 = Object.keys(Cands)[rnd2];
-        delete Cands[key2];
-        setVSScreen(key1, key2);
-    } else {
-        if (len_cands === 1) {
-            if (cur_score + 1 === max_score) {
+            let rnd2 = Math.floor(Math.random() * Object.keys(Cands).length);
+            key2 = Object.keys(Cands)[rnd2];
+            delete Cands[key2];
+            setVSScreen(key1, key2);
+        } else {
+            if (len_cands === 1) {
+                if (cur_score + 1 === max_score) {
+                    changeSortPhaseTo('done');
+                    getResult();
+                    return;
+                } else {
+                    key = Object.keys(Cands)[0];
+                    entryList[key] += 1;
+                }
+            }
+            cur_score += 1;
+            initCands(cur_score);
+            nextVS();
+        }
+    } else if (sort_method == 'league') {
+        if (Cands_league.length > 0) {
+            var rnd = Math.floor(Math.random() * Cands_league.length);
+            compare = Cands_league[rnd];
+            Cands_league.splice(rnd, 1);
+
+            idx1 = compare[0];
+            key1 = Object.keys(Cands)[idx1];
+            idx2 = compare[1];
+            key2 = Object.keys(Cands)[idx2];
+
+            setVSScreen(key1, key2);
+        } else {
+            if (Cands_league.length === 0) {
                 changeSortPhaseTo('done');
                 getResult();
                 return;
-            } else {
-                key = Object.keys(Cands)[0];
-                entryList[key] += 1;
             }
+            nextVS();
         }
-        cur_score += 1;
-        initCands(cur_score);
-        nextVS();
+
+
+    } else {
+        alsert('notImplemented2');
     }
+
 }
 
 
@@ -199,8 +254,15 @@ function beatutify(result) {
 
 }
 
+function selectAll() {
+    changeAllCheckboxTo(true);
+}
 
-function selectAll(value) {
+function selectNone() {
+    changeAllCheckboxTo(false);
+}
+
+function changeAllCheckboxTo(value) {
     var checkboxs = document.querySelectorAll(`input[data-checkbox-id]`);
     for (let i = 0; i < checkboxs.length; i++) {
         // $(inputElements[i]).prop("checked", value);
@@ -264,8 +326,9 @@ $(function() {
 document.getElementById("sort_start").addEventListener("click", startSort, false);
 
 // link select all/disselect all to buttons
-document.getElementById("btn_select_all").addEventListener("click", selectAll(true), false);
-document.getElementById("btn_select_none").addEventListener("click", selectAll(false), false);
+document.getElementById("btn_select_all").addEventListener("click", selectAll, false);
+document.getElementById("btn_select_none").addEventListener("click", selectNone, false);
+
 
 function open_collapsed() {
     this.classList.toggle("active");
