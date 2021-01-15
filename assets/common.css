@@ -71,6 +71,10 @@ header nav a:hover {
     background: #101010;
 }
 
+ul {
+    margin: 0px;
+}
+
 div#sort_main {
     white-space: nowrap;
 
