@@ -137,9 +137,8 @@ function beatutify(results) {
 
         item = findItemByName(name);
         result_str += ` ${String(rank)}위: ${item['name']}<br />`
-
         if ('image' in item) {
-            result_str += `<img class="img" src="${item['image']}" style='width:256; height:256;'><br />`
+            result_str += `<img class="img" src="${item['image']}" style='width:${dataset['Imsize'][0]}; height:${dataset['Imsize'][1]};'><br />`
         }
         if ('audio' in item) {
             result_str += `<audio controls src="${item['audio']}"></audio><br />`; // todo if 'audio' is in item.keys()
