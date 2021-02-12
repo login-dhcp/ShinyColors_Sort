@@ -98,24 +98,34 @@ for (i = 0; i < coll.length; i++) {
 // screen related things
 function setVSScreen(value1, value2) {
     leftItem = findItemByName(value1);
-    let leftImage = document.getElementById('sort_left_image');
-    leftImage.src = leftItem['image'];
-    leftImage.width = 256;
-    leftImage.height = 256;
     document.getElementById("sort_left_button").innerText = value1;
-    document.getElementById("sort_left_audio").src = leftItem['audio'];
-    leftDescription = document.getElementById('sort_left_description');
-    leftDescription.innerText = get_description(leftItem);
+    var leftImage = document.getElementById('sort_left_image');
+    if (leftImage && 'image' in leftItem) {
+        leftImage.src = leftItem['image'];
+        leftImage.width = dataset['Imsize'][0];
+        leftImage.height = dataset['Imsize'][1]; 
+    }
+    var leftAudio = document.getElementById("sort_left_audio");
+    if (leftAudio && 'audio' in leftItem) {
+        leftAudio.src = leftItem['audio'];
+    }
+    var leftDescription = document.getElementById('sort_left_description');
+    leftDescription.innerText = `정보: ${get_description(leftItem)}`;
 
     rightItem = findItemByName(value2);
-    let rightImage = document.getElementById('sort_right_image');
-    rightImage.src = rightItem['image'];
-    rightImage.width = 256;
-    rightImage.height = 256;
     document.getElementById("sort_right_button").innerText = value2;
-    document.getElementById("sort_right_audio").src = rightItem['audio'];
-    rightDescription = document.getElementById('sort_right_description');
-    rightDescription.innerText = get_description(rightItem);
+    var rightImage = document.getElementById('sort_right_image');
+    if (rightImage && 'image' in rightItem) {
+        rightImage.src = rightItem['image'];
+        rightImage.width  = dataset['Imsize'][0];
+        rightImage.height  = dataset['Imsize'][1];
+    }
+    var rightAudio = document.getElementById("sort_right_audio");
+    if (rightAudio && 'audio' in rightItem) {
+        rightAudio.src = rightItem['audio'];
+    }
+    var rightDescription = document.getElementById('sort_right_description');
+    rightDescription.innerText = `정보: ${get_description(rightItem)}`;
 }
 
 function beatutify(results) {
@@ -127,8 +137,13 @@ function beatutify(results) {
 
         item = findItemByName(name);
         result_str += ` ${String(rank)}위: ${item['name']}<br />`
-        result_str += `<img class="img" src="${item['image']}" style='width:256; height:256;'><br />`
-        result_str += `<audio controls src="${item['audio']}"></audio><br />`; // todo if 'audio' is in item.keys()
+
+        if ('image' in item) {
+            result_str += `<img class="img" src="${item['image']}" style='width:256; height:256;'><br />`
+        }
+        if ('audio' in item) {
+            result_str += `<audio controls src="${item['audio']}"></audio><br />`; // todo if 'audio' is in item.keys()
+        }
     }
     return result_str;
 

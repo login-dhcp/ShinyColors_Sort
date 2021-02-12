@@ -1,6 +1,6 @@
 function findItemByKeyValue(key, value) {
     items = dataset['Items'];
-    for (i=0; i<items.length; i++) {
+    for (let i=0; i<items.length; i++) {
         item = items[i];
         if (item[key] === value) {
             return item;
@@ -49,8 +49,16 @@ function parse_dataset() {
 ////////////////////
 function get_description(data) {
     const clone = JSON.parse(JSON.stringify(data));
-    delete clone['image'];
-    delete clone['audio'];
+
+    keys_hide = dataset['HideKeys'];
+
+    for (let i=0; i<keys_hide.length; i++) {
+        key = keys_hide[i];
+        if (key in clone) {
+            delete clone[key];
+        }
+    }
+
     var str = JSON.stringify(clone, null, 2);
     return str
 }

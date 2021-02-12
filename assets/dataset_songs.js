@@ -1,79 +1,11 @@
 // follows order of https://shinycolors.info/wiki/%EC%9D%8C%EB%B0%98_%EB%AA%A9%EB%A1%9D
 
 var dataset = {};
-dataset.Version = "2021-01-15";
+dataset.Version = "2021-02-12";
 
-dataset.Series = [
-    {
-        series: "01",
-        name: "THE IDOLM@STER SHINY COLORS BRILLI@NT WING",
-    },
-    {
-        series: "02",
-        name: "THE IDOLM@STER SHINY COLORS SE@SONAL WINTER",
-    },
-    {
-        series: "03",
-        name: "THE IDOLM@STER SHINY COLORS FR@GMENT WING",
-    },
-    {
-        series: "04",
-        name: "THE IDOLM@STER SHINY COLORS FUTURITY SMILE",
-    },
-    {
-        series: "05",
-        name: "THE IDOLM@STER SHINY COLORS SWEET♡STEP",
-    },
-    {
-        series: "06",
-        name: "THE IDOLM@STER SHINY COLORS GR@DATE WING",
-    },
-    {
-        series: "07",
-        name: "THE IDOLM@STER SHINY COLORS デビ太郎 VS ジャスティスV",
-    },
-    {
-        series: "08",
-        name: "THE IDOLM@STERシリーズ15周年記念曲「なんどでも笑おう」【シャイニーカラー盤】",
-    },
-    {
-        series: "09",
-        name: "THE IDOLM@STER SHINY COLORS COLORFUL FE@THERS",
-    },
-    {
-        series: "10",
-        name: "THE IDOLM@STER SHINY COLORS L@YERED WING",
-    },
-]
+dataset.HideKeys = ['image', 'audio'];
 
-dataset.Albums = [
-    {
-        name: "BRILLI@NT WING 01 Spread the Wings!!",
-        series: "01",
-        album: "01",
-    },
-    {
-        name: "BRILLI@NT WING 02 ヒカリのdestination",
-        series: "01",
-        album: "02",
-    },
-    {
-        name: "BRILLI@NT WING 03 バベルシティ・グレイス",
-        series: "01",
-        album: "03",
-    },
-    {
-        name: "BRILLI@NT WING 04 夢咲きAfter school",
-        series: "01",
-        album: "04",
-    },
-    {
-        name: "BRILLI@NT WING 05 アルストロメリア",
-        series: "01",
-        album: "05",
-    },
-]
-
+dataset.Imsize = [256, 256];
 
 dataset.Items = [
     {
