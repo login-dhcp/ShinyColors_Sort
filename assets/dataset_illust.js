@@ -130,7 +130,7 @@ dataset.Items = [{
         idol: { "ko": "시라세 사쿠야", "jp": "白瀬咲耶", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【紺碧のボーダーライン】白瀬咲耶?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【紺碧のボーダーライン】白瀬咲耶.png?width=800",
     },
     {
         name: "【秘めやかファンサービス】白瀬咲耶",
@@ -138,7 +138,7 @@ dataset.Items = [{
         idol: { "ko": "시라세 사쿠야", "jp": "白瀬咲耶", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【秘めやかファンサービス】白瀬咲耶?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【秘めやかファンサービス】白瀬咲耶.png?width=800",
     },
     {
         name: "【白いツバサ】白瀬咲耶",
@@ -146,7 +146,7 @@ dataset.Items = [{
         idol: { "ko": "시라세 사쿠야", "jp": "白瀬咲耶", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】白瀬咲耶?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】白瀬咲耶.png?width=800",
     },
     {
         name: "【お試し／みつゴコロ】三峰結華",
@@ -154,7 +154,7 @@ dataset.Items = [{
         idol: { "ko": "미츠미네 유이카", "jp": "三峰結華", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【お試し／みつゴコロ】三峰結華?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【お試し／みつゴコロ】三峰結華.png?width=800",
     },
     {
         name: "【カラフルメタモルフォーゼ】三峰結華",
@@ -162,7 +162,7 @@ dataset.Items = [{
         idol: { "ko": "미츠미네 유이카", "jp": "三峰結華", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【カラフルメタモルフォーゼ】三峰結華?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【カラフルメタモルフォーゼ】三峰結華.png?width=800",
     },
     {
         name: "【白いツバサ】三峰結華",
@@ -170,7 +170,7 @@ dataset.Items = [{
         idol: { "ko": "미츠미네 유이카", "jp": "三峰結華", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】三峰結華?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】三峰結華.png?width=800",
     },
     {
         name: "【霧・音・燦・燦】幽谷霧子",
@@ -178,7 +178,7 @@ dataset.Items = [{
         idol: { "ko": "유코쿠 키리코", "jp": "幽谷霧子", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【霧・音・燦・燦】幽谷霧子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【霧・音・燦・燦】幽谷霧子.png?width=800",
     },
     {
         name: "【包・帯・組・曲】幽谷霧子",
@@ -186,7 +186,7 @@ dataset.Items = [{
         idol: { "ko": "유코쿠 키리코", "jp": "幽谷霧子", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【包・帯・組・曲】幽谷霧子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【包・帯・組・曲】幽谷霧子.png?width=800",
     },
     {
         name: "【白いツバサ】幽谷霧子",
@@ -194,7 +194,7 @@ dataset.Items = [{
         idol: { "ko": "유코쿠 키리코", "jp": "幽谷霧子", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】幽谷霧子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】幽谷霧子.png?width=800",
     },
     {
         name: "【第2形態アーマードタイプ】小宮果穂",
@@ -202,7 +202,7 @@ dataset.Items = [{
         idol: { "ko": "코미야 카호", "jp": "小宮果穂", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【第2形態アーマードタイプ】小宮果穂?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【第2形態アーマードタイプ】小宮果穂.png?width=800",
     },
     {
         name: "【マメ丸と一緒！】小宮果穂",
@@ -210,7 +210,7 @@ dataset.Items = [{
         idol: { "ko": "코미야 카호", "jp": "小宮果穂", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マメ丸と一緒！】小宮果穂?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マメ丸と一緒！】小宮果穂.png?width=800",
     },
     {
         name: "【白いツバサ】小宮果穂",
@@ -218,7 +218,7 @@ dataset.Items = [{
         idol: { "ko": "코미야 카호", "jp": "小宮果穂", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】小宮果穂?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】小宮果穂.png?width=800",
     },
     {
         name: "【チョコ色×きらきらロマン】園田智代子",
@@ -226,7 +226,7 @@ dataset.Items = [{
         idol: { "ko": "소노다 치요코", "jp": "園田智代子", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【チョコ色×きらきらロマン】園田智代子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【チョコ色×きらきらロマン】園田智代子.png?width=800",
     },
     {
         name: "【純真チョコレート】園田智代子",
@@ -234,7 +234,7 @@ dataset.Items = [{
         idol: { "ko": "소노다 치요코", "jp": "園田智代子", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【純真チョコレート】園田智代子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【純真チョコレート】園田智代子.png?width=800",
     },
     {
         name: "【白いツバサ】園田智代子",
@@ -242,7 +242,7 @@ dataset.Items = [{
         idol: { "ko": "소노다 치요코", "jp": "園田智代子", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】園田智代子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】園田智代子.png?width=800",
     },
     {
         name: "【ラムネ色の覚悟】西城樹里",
@@ -250,7 +250,7 @@ dataset.Items = [{
         idol: { "ko": "사이죠 쥬리", "jp": "西城樹里", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ラムネ色の覚悟】西城樹里?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ラムネ色の覚悟】西城樹里.png?width=800",
     },
     {
         name: "【バッドガールの羽ばたき】西城樹里",
@@ -258,7 +258,7 @@ dataset.Items = [{
         idol: { "ko": "사이죠 쥬리", "jp": "西城樹里", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【バッドガールの羽ばたき】西城樹里?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【バッドガールの羽ばたき】西城樹里.png?width=800",
     },
     {
         name: "【白いツバサ】西城樹里",
@@ -266,7 +266,7 @@ dataset.Items = [{
         idol: { "ko": "사이죠 쥬리", "jp": "西城樹里", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】西城樹里?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】西城樹里.png?width=800",
     },
     {
         name: "【杜野凛世の印象派】杜野凛世",
@@ -274,7 +274,7 @@ dataset.Items = [{
         idol: { "ko": "모리노 린제", "jp": "杜野凛世", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【杜野凛世の印象派】杜野凛世?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【杜野凛世の印象派】杜野凛世.png?width=800",
     },
     {
         name: "【想ひいろは】杜野凛世",
@@ -282,7 +282,7 @@ dataset.Items = [{
         idol: { "ko": "모리노 린제", "jp": "杜野凛世", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【想ひいろは】杜野凛世?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【想ひいろは】杜野凛世.png?width=800",
     },
     {
         name: "【白いツバサ】杜野凛世",
@@ -290,7 +290,7 @@ dataset.Items = [{
         idol: { "ko": "모리노 린제", "jp": "杜野凛世", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】杜野凛世?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】杜野凛世.png?width=800",
     },
     {
         name: "【アルティメットマーメイド】有栖川夏葉",
@@ -298,7 +298,7 @@ dataset.Items = [{
         idol: { "ko": "아리스가와 나츠하", "jp": "有栖川夏葉", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【アルティメットマーメイド】有栖川夏葉?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【アルティメットマーメイド】有栖川夏葉.png?width=800",
     },
     {
         name: "【ストイックトレーニング】有栖川夏葉",
@@ -306,7 +306,7 @@ dataset.Items = [{
         idol: { "ko": "아리스가와 나츠하", "jp": "有栖川夏葉", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ストイックトレーニング】有栖川夏葉?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ストイックトレーニング】有栖川夏葉.png?width=800",
     },
     {
         name: "【白いツバサ】有栖川夏葉",
@@ -314,7 +314,7 @@ dataset.Items = [{
         idol: { "ko": "아리스가와 나츠하", "jp": "有栖川夏葉", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】有栖川夏葉?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】有栖川夏葉.png?width=800",
     },
     {
         name: "【スタンバイオッケー】大崎甘奈",
@@ -322,7 +322,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 아마나", "jp": "大崎甘奈", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【スタンバイオッケー】大崎甘奈?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【スタンバイオッケー】大崎甘奈.png?width=800",
     },
     {
         name: "【似合うかな？】大崎甘奈",
@@ -330,7 +330,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 아마나", "jp": "大崎甘奈", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【似合うかな？】大崎甘奈?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【似合うかな？】大崎甘奈.png?width=800",
     },
     {
         name: "【白いツバサ】大崎甘奈",
@@ -338,7 +338,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 아마나", "jp": "大崎甘奈", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】大崎甘奈?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】大崎甘奈.png?width=800",
     },
     {
         name: "【事務所。静寂。大輪の華】大崎甜花",
@@ -346,7 +346,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 텐카", "jp": "大崎甜花", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【事務所。静寂。大輪の華】大崎甜花?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【事務所。静寂。大輪の華】大崎甜花.png?width=800",
     },
     {
         name: "【秘密のだらだらタイム】大崎甜花",
@@ -354,7 +354,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 텐카", "jp": "大崎甜花", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【秘密のだらだらタイム】大崎甜花?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【秘密のだらだらタイム】大崎甜花.png?width=800",
     },
     {
         name: "【白いツバサ】大崎甜花",
@@ -362,7 +362,7 @@ dataset.Items = [{
         idol: { "ko": "오사키 텐카", "jp": "大崎甜花", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】大崎甜花?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】大崎甜花.png?width=800",
     },
     {
         name: "【マイ・ピュア・ロマンス】桑山千雪",
@@ -370,7 +370,7 @@ dataset.Items = [{
         idol: { "ko": "쿠와야마 치유키", "jp": "桑山千雪", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マイ・ピュア・ロマンス】桑山千雪?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マイ・ピュア・ロマンス】桑山千雪.png?width=800",
     },
     {
         name: "【マイフェイバリット】桑山千雪",
@@ -378,7 +378,7 @@ dataset.Items = [{
         idol: { "ko": "쿠와야마 치유키", "jp": "桑山千雪", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マイフェイバリット】桑山千雪?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【マイフェイバリット】桑山千雪.png?width=800",
     },
     {
         name: "【白いツバサ】桑山千雪",
@@ -386,7 +386,7 @@ dataset.Items = [{
         idol: { "ko": "쿠와야마 치유키", "jp": "桑山千雪", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】桑山千雪?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】桑山千雪.png?width=800",
     },
     {
         name: "【ジャンプ！スタッグ！！！】芹沢あさひ",
@@ -394,7 +394,7 @@ dataset.Items = [{
         idol: { "ko": "세리자와 아사히", "jp": "芹沢あさひ", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ジャンプ！スタッグ！！！】芹沢あさひ?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ジャンプ！スタッグ！！！】芹沢あさひ.png?width=800",
     },
     {
         name: "【さかさま世界】芹沢あさひ",
@@ -402,7 +402,7 @@ dataset.Items = [{
         idol: { "ko": "세리자와 아사히", "jp": "芹沢あさひ", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【さかさま世界】芹沢あさひ?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【さかさま世界】芹沢あさひ.png?width=800",
     },
     {
         name: "【白いツバサ】芹沢あさひ",
@@ -410,7 +410,7 @@ dataset.Items = [{
         idol: { "ko": "세리자와 아사히", "jp": "芹沢あさひ", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】芹沢あさひ?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】芹沢あさひ.png?width=800",
     },
     {
         name: "【オ♡フ♡レ♡コ】黛冬優子",
@@ -418,7 +418,7 @@ dataset.Items = [{
         idol: { "ko": "마유즈미 후유코", "jp": "黛冬優子", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【オ♡フ♡レ♡コ】黛冬優子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【オ♡フ♡レ♡コ】黛冬優子.png?width=800",
     },
     {
         name: "【ザ・冬優子イズム】黛冬優子",
@@ -426,7 +426,7 @@ dataset.Items = [{
         idol: { "ko": "마유즈미 후유코", "jp": "黛冬優子", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ザ・冬優子イズム】黛冬優子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ザ・冬優子イズム】黛冬優子.png?width=800",
     },
     {
         name: "【白いツバサ】黛冬優子",
@@ -434,7 +434,7 @@ dataset.Items = [{
         idol: { "ko": "마유즈미 후유코", "jp": "黛冬優子", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】黛冬優子?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】黛冬優子.png?width=800",
     },
     {
         name: "【ちょっとあげる～】和泉愛依",
@@ -442,7 +442,7 @@ dataset.Items = [{
         idol: { "ko": "이즈미 메이", "jp": "和泉愛依", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ちょっとあげる～】和泉愛依?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ちょっとあげる～】和泉愛依.png?width=800",
     },
     {
         name: "【気になる！？染めちゃう！？】和泉愛依",
@@ -450,7 +450,7 @@ dataset.Items = [{
         idol: { "ko": "이즈미 메이", "jp": "和泉愛依", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【気になる！？染めちゃう！？】和泉愛依?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【気になる！？染めちゃう！？】和泉愛依.png?width=800",
     },
     {
         name: "【白いツバサ】和泉愛依",
@@ -458,7 +458,7 @@ dataset.Items = [{
         idol: { "ko": "이즈미 메이", "jp": "和泉愛依", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】和泉愛依?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】和泉愛依.png?width=800",
     },
     {
         name: "【10個、光】浅倉透",
@@ -466,7 +466,7 @@ dataset.Items = [{
         idol: { "ko": "아사쿠사 토오루", "jp": "浅倉透", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【10個、光】浅倉透?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【10個、光】浅倉透.png?width=800",
     },
     {
         name: "【白いツバサ】浅倉透",
@@ -474,7 +474,7 @@ dataset.Items = [{
         idol: { "ko": "아사쿠사 토오루", "jp": "浅倉透", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】浅倉透?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】浅倉透.png?width=800",
     },
     {
         name: "【カラカラカラ】樋口円香",
@@ -482,7 +482,7 @@ dataset.Items = [{
         idol: { "ko": "히구치 마도카", "jp": "樋口円香", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【カラカラカラ】樋口円香?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【カラカラカラ】樋口円香.png?width=800",
     },
     {
         name: "【白いツバサ】樋口円香",
@@ -490,7 +490,7 @@ dataset.Items = [{
         idol: { "ko": "히구치 마도카", "jp": "樋口円香", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】樋口円香?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】樋口円香.png?width=800",
     },
     {
         name: "【ポシェットの中には】福丸小糸",
@@ -498,7 +498,7 @@ dataset.Items = [{
         idol: { "ko": "후쿠마루 코이토", "jp": "福丸小糸", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ポシェットの中には】福丸小糸?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【ポシェットの中には】福丸小糸.png?width=800",
     },
     {
         name: "【白いツバサ】福丸小糸",
@@ -506,7 +506,7 @@ dataset.Items = [{
         idol: { "ko": "후쿠마루 코이토", "jp": "福丸小糸", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】福丸小糸?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】福丸小糸.png?width=800",
     },
     {
         name: "【HAPPY-!NG】市川雛菜",
@@ -514,7 +514,7 @@ dataset.Items = [{
         idol: { "ko": "이치카와 히나나", "jp": "市川雛菜", },
         rarity: "SSR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【HAPPY-!NG】市川雛菜?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【HAPPY-!NG】市川雛菜.png?width=800",
     },
     {
         name: "【SS】市川雛菜",
@@ -522,7 +522,7 @@ dataset.Items = [{
         idol: { "ko": "이치카와 히나나", "jp": "市川雛菜", },
         rarity: "SR",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【SS】市川雛菜?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【SS】市川雛菜.png?width=800",
     },
     {
         name: "【白いツバサ】市川雛菜",
@@ -530,7 +530,7 @@ dataset.Items = [{
         idol: { "ko": "이치카와 히나나", "jp": "市川雛菜", },
         rarity: "R",
         idx: "01",
-        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】市川雛菜?width=800",
+        image: "https://shinycolors.info/wiki/특수:넘겨주기/file/【白いツバサ】市川雛菜.png?width=800",
     },
 
 ]
