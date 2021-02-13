@@ -75,6 +75,15 @@ ul {
     margin: 0px;
 }
 
+table {
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #444444;
+}
+
 div#sort_main {
     white-space: nowrap;
 
@@ -147,7 +156,6 @@ div#sort_list {
     display: none;
     overflow: hidden;
 }
-
 
 
 div#sort_main[sort-phase=ready] div#sort_window,

@@ -63,18 +63,15 @@ function startSort() {
 }
 
 function getEntryList() {
-    let entrySelected = document.querySelectorAll('input[class^=select_one]:checked');
-    return entrySelected;
+    return document.querySelectorAll('input[class^=select_one]:checked');
 }
 
 
 function setCands() {
-    let entrySelected = getEntryList();
+    var entrySelected = getEntryList();
     var entryList_new = {};
     for (let i = 0; i < entrySelected.length; i++) {
-        let elem = entrySelected[i].nextElementSibling;
-        let key = elem.innerText;
-        // key = checked_boxs[i].labels[0].innerText;
+        var key = entrySelected[i].getAttribute('data-checkbox-id');
         entryList_new[key] = 0;
     }
     entryList = entryList_new;

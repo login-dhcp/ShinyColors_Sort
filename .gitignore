@@ -8,5 +8,5 @@ benchmark/
 
 #
 src/
-
+!src/dataset/**
 

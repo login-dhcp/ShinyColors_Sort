@@ -102,30 +102,32 @@ function setVSScreen(value1, value2) {
     var leftImage = document.getElementById('sort_left_image');
     if (leftImage && 'image' in leftItem) {
         leftImage.src = leftItem['image'];
-        leftImage.width = dataset['Imsize'][0];
-        leftImage.height = dataset['Imsize'][1]; 
+        leftImage.width = configs['Imsize'][0];
+        leftImage.height = configs['Imsize'][1]; 
     }
     var leftAudio = document.getElementById("sort_left_audio");
     if (leftAudio && 'audio' in leftItem) {
         leftAudio.src = leftItem['audio'];
     }
     var leftDescription = document.getElementById('sort_left_description');
-    leftDescription.innerText = `정보: ${get_description(leftItem)}`;
+    // leftDescription.innerText = `정보: ${get_description(leftItem)}`;
+    // leftDescription.innerHTML = `${getDescriptionTable(leftItem)}`
 
     rightItem = findItemByName(value2);
     document.getElementById("sort_right_button").innerText = value2;
     var rightImage = document.getElementById('sort_right_image');
     if (rightImage && 'image' in rightItem) {
         rightImage.src = rightItem['image'];
-        rightImage.width  = dataset['Imsize'][0];
-        rightImage.height  = dataset['Imsize'][1];
+        rightImage.width  = configs['Imsize'][0];
+        rightImage.height  = configs['Imsize'][1];
     }
     var rightAudio = document.getElementById("sort_right_audio");
     if (rightAudio && 'audio' in rightItem) {
         rightAudio.src = rightItem['audio'];
     }
     var rightDescription = document.getElementById('sort_right_description');
-    rightDescription.innerText = `정보: ${get_description(rightItem)}`;
+    // rightDescription.innerText = `${get_description(rightItem)}`;
+    // rightDescription.innerHTML = `${getDescriptionTable(rightItem)}`
 }
 
 function beatutify(results) {
@@ -138,7 +140,7 @@ function beatutify(results) {
         item = findItemByName(name);
         result_str += ` ${String(rank)}위: ${item['name']}<br />`
         if ('image' in item) {
-            result_str += `<img class="img" src="${item['image']}" style='width:${dataset['Imsize'][0]}; height:${dataset['Imsize'][1]};'><br />`
+            result_str += `<img class="img" src="${item['image']}" style='width:${configs['Imsize'][0]}; height:${configs['Imsize'][1]};'><br />`
         }
         if ('audio' in item) {
             result_str += `<audio controls src="${item['audio']}"></audio><br />`; // todo if 'audio' is in item.keys()
