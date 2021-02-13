@@ -7,6 +7,10 @@ temp.py
 benchmark/
 
 #
-src/
-!src/dataset/**
+# src/illust
+# src/album_cover
+src/**
+!src/
+!src/dataset/
+!src/dataset/*
 
